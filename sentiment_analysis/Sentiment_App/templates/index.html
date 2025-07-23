@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 60px;
+            background-color: #f4f4f4;
+        }
+        textarea {
+            width: 400px;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>🧠 Sentiment Analysis Web App</h2>
+    <form method="POST" action="/analyze">
+        <textarea name="text" placeholder="Type your sentence here..." required></textarea><br><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if sentiment %}
+        <div class="result">
+            <p><strong>Text:</strong> {{ text }}</p>
+            <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>

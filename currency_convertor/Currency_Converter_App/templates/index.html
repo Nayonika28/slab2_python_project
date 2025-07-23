@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f2f2f2;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>💱 Currency Converter App</h2>
+
+    <form method="POST" action="/convert">
+        <input type="number" name="amount" step="0.01" placeholder="Enter amount" required><br>
+        <input type="text" name="from_currency" placeholder="From (e.g., USD)" required><br>
+        <input type="text" name="to_currency" placeholder="To (e.g., INR)" required><br>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <div class="result">
+            <p><strong>{{ amount }} {{ from_currency }} = {{ result }} {{ to_currency }}</strong></p>
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
